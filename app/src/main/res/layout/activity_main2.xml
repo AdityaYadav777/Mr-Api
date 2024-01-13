@@ -12,7 +12,7 @@
 
       android:layout_height="match_parent">
 
-      <LinearLayout
+      <RelativeLayout
           android:layout_width="match_parent"
           android:orientation="vertical"
           android:layout_height="match_parent">
@@ -26,6 +26,7 @@
        android:id="@+id/showImage"
        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small"/>
 
+
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -33,15 +34,46 @@
               android:layout_marginStart="23dp"
               android:textSize="23sp"
               android:textStyle="bold"
+              android:layout_below="@+id/showImage"
               android:id="@+id/showTitle"/>
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              android:text="2000"
+              android:layout_marginStart="23dp"
+              android:textSize="20sp"
+              android:textStyle="bold"
+              android:layout_below="@+id/showTitle"
+              android:fontFamily="sans-serif"
+              android:id="@+id/showPrice"/>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="$"
+              android:textSize="23sp"
+              android:layout_marginStart="70dp"
+              android:layout_marginTop="349dp"
+              />
+
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:text="hjdfjhdjhsfjbhjsdbhfbhbshdbfhbshdvbfhvbhsvbdfhjvbhsdvbfhvbsjbdvfjjdfhgjhjdgfjhdjghjdhgfjhjdhgfjhhjierhfihhdihfihuhrudghreihgihiehrighviehrihgviherihgviheiurhviheihrihuirh"
-              android:layout_margin="10dp"
+             android:padding="20dp"
               android:id="@+id/showDesc"
+              android:layout_below="@+id/showPrice"
               android:textSize="16sp"/>
 
-      </LinearLayout>
+          <RatingBar
+              android:id="@+id/ratingBar"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/showDesc"
+              android:rating="3.5"
+              android:layout_margin="20dp"/>
+
+
+      </RelativeLayout>
   </ScrollView>
 </RelativeLayout>

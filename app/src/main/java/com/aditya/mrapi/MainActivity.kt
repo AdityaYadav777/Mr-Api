@@ -1,7 +1,9 @@
 package com.aditya.mrapi
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aditya.mrapi.databinding.ActivityMainBinding
 import retrofit2.Call
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         val retrofitBuilder=Retrofit.Builder()
             .baseUrl("https://dummyjson.com/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         retrofitData.enqueue(object : Callback<myData?> { //ctrl+shift+space
             override fun onResponse(call: Call<myData?>, response: Response<myData?>) {
+                binding.progressBar.visibility=View.GONE
                 var responceBody=response.body()
                 val productList=responceBody?.products
 

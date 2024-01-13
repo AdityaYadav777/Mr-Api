@@ -20,6 +20,7 @@ class myAdapter(val context: MainActivity, val productList:List<Product>):
         var image:ShapeableImageView
         var price:TextView
         var brand:TextView
+        var cate=itemView.findViewById<TextView>(R.id.productCate)
 
         init {
             title=itemView.findViewById(R.id.productTitle)
@@ -45,6 +46,7 @@ class myAdapter(val context: MainActivity, val productList:List<Product>):
         holder.title.text=getData.title
         holder.brand.text=getData.brand
         holder.price.text= getData.price.toString()
+        holder.cate.text=getData.category
         Picasso.get().load(getData.thumbnail).into(holder.image)
 
         holder.itemView.setOnClickListener {
@@ -53,6 +55,8 @@ class myAdapter(val context: MainActivity, val productList:List<Product>):
             i.putExtra("title",getData.title)
             i.putExtra("url",getData.thumbnail)
             i.putExtra("desc",getData.description)
+            i.putExtra("price",getData.price.toString())
+            i.putExtra("rating",getData.rating)
             context.startActivity(i)
         }
 
